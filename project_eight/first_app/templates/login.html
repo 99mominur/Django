@@ -1,0 +1,32 @@
+{% extends 'base.html' %} 
+{% load crispy_forms_tags %} 
+{% block body %} 
+{% if messages %} {% for m in messages %}
+<div class="toast show container">
+  <div class="toast-header justify-content-center">
+    Success
+    <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+  </div>
+  <div class="toast-body">{{m}}</div>
+</div>
+{% endfor %} {% endif %}
+
+<form method="post" style="width: 50%; margin: auto"; novalidate>
+<h3>User Login Form</h3>
+{% if form.non_field_errors %}
+{% for er in form.non_field_errors %}
+<p class="bg-danger text-white p-3">{{er}}</p>
+{% endfor %}
+{% endif %}
+  {% csrf_token %} 
+  <!--{{form|crispy}}-->
+ {% for fm in form %} {{fm.label_tag}} {{fm}} {{fm.errors|striptags}} {% endfor %}
+ <br>
+  <button class="btn btn-warning" type="Submit">Submit</button>
+  <br>
+  <small>
+    Have no an account? <a href="{% url 'user_logout' %}"> Sign In </a>
+  </small>
+</form>
+
+{% endblock body %}

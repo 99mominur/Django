@@ -1,0 +1,31 @@
+{% extends "base.html" %} 
+{%block content%}
+<div style="width: 64%; margin: auto">
+  <h1 class="text-3xl font-semibold">User list</h1>
+
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-blue-100 dark:text-blue-100">
+      <thead class="text-xs text-black uppercase bg-blue-300 dark:text-white">
+        <tr>
+          <th scope="col" class="px-6 py-3">Username</th>
+          <th scope="col" class="px-6 py-3">First Name</th>
+          <th scope="col" class="px-6 py-3">Last Name</th>
+          <th scope="col" class="px-6 py-3">Email</th>
+          <th scope="col" class="px-6 py-3">Staff Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in users%}
+        <tr class="bg-blue-200 text-black border-b border-blue-400">
+          <td scope="col" class="px-6 py-3">{{user.username}}</td>
+          <td scope="col" class="px-6 py-3">{{user.first_name}}</td>
+          <td scope="col" class="px-6 py-3">{{user.last_name}}</td>
+          <td scope="col" class="px-6 py-3">{{user.email}}</td>
+          <td scope="col" class="px-6 py-3">{{user.is_staff}}</td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+  </div>
+</div>
+{%endblock content%}

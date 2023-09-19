@@ -1,0 +1,15 @@
+{% extends "base.html" %} 
+
+{% load crisy_forms_tags}
+ {% block content %}
+
+<div style="width: 50%; margin: auto">Welcome to book store management</div>
+<div style="width: 50%; margin: auto">
+  <h1>Are you sure, you want to delete this?</h1>
+  <form method="post">
+    {% csrf_token %}{{form}}
+    <button class="btn btn-info">Submit</button>
+  </form>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %} 
+
+{% load first_tag %}
+
+{% block title %} Home Page {% endblock title %}
+
+{% block content %} 
+<i class="fas fa-h1"> Author: {{Author}} </i> <hr/>
+<h1>{{Author|change_name:"title"}}
+{% endblock content %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %} 
+ {% block content %}
+<div style="width: 80%; margin: auto">
+  <h1 class="text-primary">List of Books</h1>
+
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-blue-100 dark:text-blue-100">
+      <thead class="text-xs text-black uppercase bg-blue-300 dark:text-white">
+        <tr>
+        <th scope="col" class="px-6 py-3">#id</th>
+        <th scope="col" class="px-6 py-3">Book Name</th>
+        <th scope="col" class="px-6 py-3">Author</th>
+        <th scope="col" class="px-6 py-3">Category</th>
+        <th scope="col" class="px-6 py-3">First Publication</th>
+        <th scope="col" class="px-6 py-3">Last Publication</th>
+        <th scope="col" class="px-6 py-3">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr class="bg-blue-200 text-black border-b border-blue-400">
+        
+
+        <td scope="col" class="px-6 py-3">{{item.id}}</td>
+        <td scope="col" class="px-6 py-3">{{item.book_name}}</td>
+        <td scope="col" class="px-6 py-3">{{item.author}}</td>
+        <td scope="col" class="px-6 py-3">{{item.category}}</td>
+        <td scope="col" class="px-6 py-3">{{item.first_pub}}</td>
+        <td scope="col" class="px-6 py-3">{{item.last_pub}}</td>
+        <td scope="col" class="px-6 py-3">
+          <a
+            name=""
+            id=""
+            class="text-gray-600 font-bold bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900"
+            href="{% url 'edit_book' pk=item.id %}"
+            role="button"
+            >Edit</a
+          >
+          <a
+            name=""
+            id=""
+            class="text-white font-bold bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+            href="{% url 'delete_book' pk=item.id %}"
+            role="button"
+            >Delete</a
+          >
+        </td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+  
+</div>
+
+{% endblock content %}

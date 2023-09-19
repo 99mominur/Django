@@ -1,0 +1,40 @@
+{%extends "base.html"%} {%block title%} Form page {%endblock title%} 
+{%block content%}
+<div style="width: 50%; height: 500px; margin: auto;" class="pt-5">
+
+  <form method="post" action="{%url 'aboutpage' %}">
+    {% csrf_token %}
+    <div class="mb-3" >
+      <label for="exampleInputEmail1" class="form-label">Name</label>
+      <input
+      type="text"
+      class="form-control"
+      id="exampleInputEmail1"
+      aria-describedby="nameHelp"
+      name="username"
+      />
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Email</label>
+    <input
+    type="email"
+    class="form-control"
+    id="exampleInputPassword1"
+    name="useremail"
+    />
+  </div>
+  <label class="form-label">Rating</label>
+  <select class="form-select" aria-label="Default select example" name="select">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option selected value="5">5</option>
+  </select>
+  
+  <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>
+</div>
+
+
+{%endblock content%}
